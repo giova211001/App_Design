@@ -6,12 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SecondFragment">
 
-    <TextView
+    <Chronometer
         android:id="@+id/tempo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="28:32"
-        android:textSize="100dp"
+        android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@id/time"
         android:textAlignment="center"/>
 
@@ -116,13 +115,38 @@
         android:textSize="20dp"/>
 
     <Button
+        android:id="@+id/start_chrono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/mezza"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:text="Avvia corsa"
+
+        />
+
+    <Button
+        android:id="@+id/pause_chrono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mezza"
+        app:layout_constraintStart_toEndOf="@id/start_chrono"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:text="Pausa corsa"
+
+        />
+
+    <Button
+        android:id="@+id/reset_chrono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mezza"
+        app:layout_constraintStart_toEndOf="@id/pause_chrono"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:text="Termina corsa"
 
         />
 
