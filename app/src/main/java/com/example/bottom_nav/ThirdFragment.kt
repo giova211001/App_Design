@@ -5,30 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import kotlin.random.Random
+import android.util.Log;
+import android.widget.ProgressBar
+import android.widget.TextView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ThirdFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ThirdFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    var display_message: String? = ""
+    private var progr: Int = 0
+    lateinit var progress_b: ProgressBar
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,23 +25,48 @@ class ThirdFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_third, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ThirdFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ThirdFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var btn: Button = view.findViewById<Button>(R.id.btn1)
+        progress_b = view.findViewById(R.id.progress_bar)
+        var text_viewp: TextView = view.findViewById<TextView>(R.id.text_view_progress)
+        var message: TextView = view.findViewById(R.id.data_pass)
+
+        //modifico il testo
+        val data = arguments?.getString("messaggio")
+
+        //quando clicco il bottone genero numero random e cambio il testo e la percentuale
+        btn.setOnClickListener {
+            //genero numero random
+            val numeri = 1..100
+            progr = numeri.random()
+            //stampo il numero
+            Log.i("random", "Il numero uscito è $progr")
+
+            //modifico valori
+
+            //progress_b.progress = progr
+            text_viewp.text =  "$display_message/100"
+
+
+        }
+
+
     }
+    companion object{
+        fun newInstance(data:String): ThirdFragment {
+            val fragment = ThirdFragment()
+            val args = Bundle().apply { putString("messaggio", data) }
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+
+
+
+
+
+
 }

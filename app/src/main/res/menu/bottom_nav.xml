@@ -15,9 +15,16 @@
         />
 
 
+
     <item
         android:id="@+id/thirdFragment"
-        android:title="Setting"
+        android:title="Monitor"
+        android:icon="@drawable/monitor"
+        />
+
+    <item
+        android:id="@+id/fourthFragment"
+        android:title="Settings"
         android:icon="@drawable/settings"
         />
 

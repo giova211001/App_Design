@@ -17,6 +17,7 @@ class SecondFragment : Fragment() {
 
     lateinit var chrono: Chronometer
     var pauseOffset: Long = 0
+
     var running: Boolean = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

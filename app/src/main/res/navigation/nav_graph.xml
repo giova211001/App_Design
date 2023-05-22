@@ -20,4 +20,10 @@
         android:name="com.example.bottom_nav.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.bottom_nav.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" />
+
 </navigation>
