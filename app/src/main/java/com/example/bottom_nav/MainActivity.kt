@@ -46,12 +46,14 @@ class MainActivity : AppCompatActivity(), Communicator {
     }
 
 
-
+    //passare dati tra 2 o + fragments
     override fun passData(editText: String) {
         val bundle = Bundle()
         bundle.putString("message", editText)
-        val fragment_three = ThirdFragment()
-        fragment_three.arguments = bundle
+        //val transaction = this.supportFragmentManager.beginTransaction()
+        val third = ThirdFragment()
+        third.arguments = bundle
+
 
 
     }

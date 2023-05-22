@@ -22,46 +22,49 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false)
+        val view =  inflater.inflate(R.layout.fragment_third, container, false)
+
+        val pass: TextView = view.findViewById(R.id.data_pass)
+
+
+        var display_message = arguments?.getString("message")
+        Log.i("prova", "$display_message")
+        pass.text = display_message
+
+        return view
+
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //super.onViewCreated(view, savedInstanceState)
 
-        var btn: Button = view.findViewById<Button>(R.id.btn1)
-        progress_b = view.findViewById(R.id.progress_bar)
-        var text_viewp: TextView = view.findViewById<TextView>(R.id.text_view_progress)
-        var message: TextView = view.findViewById(R.id.data_pass)
+        //var btn: Button = view.findViewById<Button>(R.id.btn1)
+        //progress_b = view.findViewById(R.id.progress_bar)
+        //var text_viewp: TextView = view.findViewById<TextView>(R.id.text_view_progress)
+        //var message: TextView = view.findViewById(R.id.data_pass)
 
         //modifico il testo
-        val data = arguments?.getString("messaggio")
+        //val data = arguments?.getString("messaggio")
 
         //quando clicco il bottone genero numero random e cambio il testo e la percentuale
-        btn.setOnClickListener {
+        //btn.setOnClickListener {
             //genero numero random
-            val numeri = 1..100
-            progr = numeri.random()
+            //val numeri = 1..100
+            //progr = numeri.random()
             //stampo il numero
-            Log.i("random", "Il numero uscito è $progr")
+            //Log.i("random", "Il numero uscito è $progr")
 
             //modifico valori
 
             //progress_b.progress = progr
-            text_viewp.text =  "$display_message/100"
+            //text_viewp.text =  "$display_message/100"
 
 
-        }
+        //}
 
 
-    }
-    companion object{
-        fun newInstance(data:String): ThirdFragment {
-            val fragment = ThirdFragment()
-            val args = Bundle().apply { putString("messaggio", data) }
-            fragment.arguments = args
-            return fragment
-        }
-    }
+    //}
+
 
 
 
